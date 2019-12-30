@@ -1,10 +1,13 @@
 ---
 # defaults file for users
 
-users_add:
+users_groups:
+  - wheel
+
+users_username:
   - name: devops
     sudo: true
-    groups: wheel
     shell: /usr/bin/bash
+    groups: wheel
     # ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
     comment: 'Created by ansible'

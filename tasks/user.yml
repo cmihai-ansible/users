@@ -9,6 +9,7 @@
     comment: "{{ item.comment }}"
     groups: "{{ item.groups | default(omit) }}"
     append: true
+  become: true
 
 # Setup ssh keys
 - name: Set authorized key taken from file
@@ -17,6 +18,7 @@
     key: "{{ item.ssh_key }}"
     state: present
   when: item.ssh_key is defined
+  become: true
 
 # Setup sudo
 - name: add defined groups to sudoers
@@ -26,3 +28,4 @@
     validate: 'visudo -cf %s'
     mode: "0440"
   when: item.sudo
+  become: true

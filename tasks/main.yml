@@ -21,5 +21,10 @@
     state: present
   become: true
 
+- name: groups are created
+  group:
+    name: "{{ item }}"
+  loop: "{{ users_groups }}"
+
 - include_tasks: user.yml
-  loop: "{{ users_add }}"
+  loop: "{{ users_username }}"
