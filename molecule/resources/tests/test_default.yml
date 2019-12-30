@@ -1,0 +1,9 @@
+# Molecule managed
+---
+user:
+  devops:
+    exists: true
+    groups:
+      - wheel
+    home: /home/cmihai
+    shell: /usr/bin/bash
