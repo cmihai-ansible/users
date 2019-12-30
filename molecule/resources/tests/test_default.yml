@@ -5,5 +5,5 @@ user:
     exists: true
     groups:
       - wheel
-    home: /home/cmihai
+    home: /home/devops
     shell: /usr/bin/bash
