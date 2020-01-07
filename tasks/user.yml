@@ -20,7 +20,7 @@
   when: item.ssh_key is defined
   become: true
 
-# Setup sudo
+# Setup sudo and validate the sudoers file
 - name: add defined groups to sudoers
   template:
     src: sudoers.j2
