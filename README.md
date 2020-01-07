@@ -23,12 +23,16 @@ Role Variables
 --------------
 
 ```yaml
-users_remove_packages: true
-users_enable_service: true
-users_enable_selinux: true
-users_firewall_configure: true
-users_firewall_rules:
-  - service:
+users_groups:
+  - wheel
+
+users_username:
+  - name: devops
+    sudo: true
+    shell: /usr/bin/bash
+    groups: wheel
+    # ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+    comment: 'Created by ansible'
 ```
 
 Dependencies
@@ -51,11 +55,16 @@ Example Playbook
       import_role:
         name: crivetimihai.users
       vars:
-        users_remove_packages: true
-        users_enable_service: true
-        users_firewall_configure: true
-        users_firewall_rules:
-          - service:
+        users_groups:
+          - wheel
+
+        users_username:
+          - name: devops
+            sudo: true
+            shell: /usr/bin/bash
+            groups: wheel
+            # ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+            comment: 'Created by ansible'
       tags: users
 ```
 

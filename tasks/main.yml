@@ -24,6 +24,7 @@
 - name: groups are created
   group:
     name: "{{ item }}"
+  become: true
   loop: "{{ users_groups }}"
 
 - include_tasks: user.yml
